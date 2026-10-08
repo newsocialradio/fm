@@ -1,0 +1,2345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NSS Radio – Listen Live | Independent Music Stream from the Isle of Man</title>
+  <meta name="description" content="Listen live to NSS Radio – a 24/7 independent music stream from the Isle of Man. Records, DJ sets, and late-night selections from the Irish Sea. Free online radio.">
+  <meta name="keywords" content="NSS Radio, online radio, live radio, independent radio, Isle of Man radio, Irish Sea, DJ sets, vinyl, internet radio, Corkwing, New Social Studios, listen live">
+  <meta name="author" content="NSS Radio / New Social Studios">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0c0c0c">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://otty.online/">
+  <link rel="alternate" type="application/rss+xml" title="NSS Radio – YouTube" href="https://www.youtube.com/feeds/videos.xml?channel_id=UCNnjmjaIgtKh-quvT7BAYHQ">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NSS Radio">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="NSS Radio – Listen Live | Independent Music from the Isle of Man">
+  <meta property="og:description" content="24/7 independent music stream – records, sets, and late-night selections from a rock in the Irish Sea. Listen free online.">
+  <meta property="og:url" content="https://otty.online/">
+  <meta property="og:image" content="https://otty.online/logo.jpg">
+  <meta property="og:image:alt" content="NSS Radio logo">
+  <meta property="og:audio" content="https://nssradio.live:8000/radio.mp3">
+  <meta property="og:audio:type" content="audio/mpeg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="NSS Radio – Listen Live">
+  <meta name="twitter:description" content="24/7 independent music stream from the Isle of Man. Records, DJ sets, late-night selections.">
+  <meta name="twitter:image" content="https://otty.online/logo.jpg">
+  <meta name="twitter:image:alt" content="NSS Radio logo">
+
+  <link rel="icon" href="logo.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://nssradio.live">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://otty.online/#website",
+        "url": "https://otty.online/",
+        "name": "NSS Radio",
+        "description": "Independent 24/7 music stream from the Isle of Man",
+        "publisher": { "@id": "https://otty.online/#station" },
+        "inLanguage": "en-GB"
+      },
+      {
+        "@type": "RadioStation",
+        "@id": "https://otty.online/#station",
+        "name": "NSS Radio",
+        "alternateName": ["Corkwing FM", "Corkwing", "New Social Studios Radio"],
+        "url": "https://otty.online/",
+        "logo": "https://otty.online/logo.jpg",
+        "image": "https://otty.online/logo.jpg",
+        "description": "Small independent music stream for daytime or nighttime pleasure — records, sets, and late-night selections from the Isle of Man, in the middle of the Irish Sea.",
+        "genre": ["Electronic", "House", "Jazz", "World", "Vinyl", "DJ Mix"],
+        "sameAs": [
+          "https://www.youtube.com/@corkwinglive",
+          "https://www.mixcloud.com/otty/",
+          "https://www.instagram.com/aotten/",
+          "https://x.com/aotten",
+          "https://ko-fi.com/newsocialstudios",
+          "https://nssradio.live/public/corkwing_fm"
+        ],
+        "areaServed": "Worldwide",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Isle of Man",
+          "addressCountry": "IM"
+        },
+        "broadcastAffiliateOf": {
+          "@type": "Organization",
+          "name": "New Social Studios"
+        }
+      },
+      {
+        "@type": "BroadcastService",
+        "@id": "https://otty.online/#stream",
+        "name": "NSS Radio Live Stream",
+        "broadcastDisplayName": "NSS Radio",
+        "url": "https://otty.online/",
+        "inLanguage": "en",
+        "broadcastTimezone": "Europe/Isle_of_Man",
+        "broadcaster": { "@id": "https://otty.online/#station" },
+        "hasBroadcastChannel": {
+          "@type": "BroadcastChannel",
+          "name": "NSS Radio MP3",
+          "broadcastChannelId": "radio.mp3",
+          "inBroadcastLineup": {
+            "@type": "CableOrSatelliteService",
+            "name": "NSS Radio Live"
+          }
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0c0c0c;
+      --surface: #111111;
+      --surface-2: #181818;
+      --border: #2a2a2a;
+      --text: #e8e8e8;
+      --text-muted: #6b6b6b;
+      --accent: #5eead4;          /* soft terminal cyan / marine */
+      --accent-hover: #99f6e4;
+      --accent-dim: rgba(94, 234, 212, 0.12);
+      --accent-glow: rgba(94, 234, 212, 0.25);
+      --success: #4ade80;
+      --radius: 2px;
+      --radius-sm: 2px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.55;
+      overflow-x: hidden;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle scan / terminal feel */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.08) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.015), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.015));
+      background-size: 100% 3px, 4px 100%;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.5;
+    }
+
+    .container {
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    /* Header – terminal style */
+    header {
+      text-align: left;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      min-width: 0;
+      flex: 1;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      border-radius: 2px;
+      object-fit: contain;
+      background: #000;
+      border: 1px solid var(--border);
+    }
+
+    .logo-text {
+      min-width: 0;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin: 0 0 0.2rem;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .logo::before {
+      content: '~/ ';
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .tagline {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-shrink: 0;
+      font-size: 0.68rem;
+      letter-spacing: 0.03em;
+    }
+
+    .site-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .site-nav a:hover,
+    .site-nav a.is-active {
+      color: var(--accent);
+    }
+
+    .site-nav .nav-sep {
+      color: var(--border);
+    }
+
+    .tagline::before {
+      content: '# ';
+      color: var(--border);
+    }
+
+    /* Player Card */
+    .player-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .player-card::before {
+      content: '● live · ライブ';
+      position: absolute;
+      top: 0.6rem;
+      right: 0.75rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* Album Art */
+    .art-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+      margin-top: 0.75rem;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+    }
+
+    .art-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s ease;
+      filter: contrast(1.05) saturate(0.9);
+    }
+
+    .art-wrapper.playing img {
+      filter: contrast(1.05) saturate(1);
+    }
+
+    .art-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-2);
+      color: var(--text-muted);
+      font-size: 2rem;
+    }
+
+    /* Play overlay on art – art itself is clickable */
+    .art-wrapper {
+      cursor: pointer;
+    }
+
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.55);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+
+    .art-wrapper.paused .play-overlay,
+    .art-wrapper:hover .play-overlay {
+      opacity: 1;
+    }
+
+    .art-wrapper.playing:hover .play-overlay {
+      opacity: 0.7;
+    }
+
+    .play-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 2px;
+      background: var(--accent);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s ease;
+    }
+
+    .art-wrapper:hover .play-btn {
+      background: var(--accent-hover);
+    }
+
+    .play-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: #0c0c0c;
+      margin-left: 2px;
+    }
+
+    .play-btn.playing svg {
+      margin-left: 0;
+    }
+
+    /* Now Playing Info */
+    .now-playing {
+      text-align: left;
+      margin-bottom: 1.15rem;
+    }
+
+    .song-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.2rem;
+      line-height: 1.4;
+      min-height: 1.4em;
+      color: var(--text);
+    }
+
+    .song-artist {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 400;
+      min-height: 1.2em;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: transparent;
+      color: #f87171;
+      font-size: 0.68rem;
+      font-weight: 500;
+      padding: 0;
+      margin-top: 0.5rem;
+      letter-spacing: 0.04em;
+      text-transform: none;
+      border: none;
+    }
+
+    .live-badge::before {
+      content: '●';
+      font-size: 0.55rem;
+      animation: pulse 1.5s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    /* Progress */
+    .progress-section {
+      margin-bottom: 1rem;
+    }
+
+    .progress-bar {
+      height: 2px;
+      background: var(--border);
+      border-radius: 0;
+      overflow: hidden;
+      margin-bottom: 0.4rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 0;
+      width: 0%;
+      transition: width 1s linear;
+    }
+
+    .time-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.02em;
+    }
+
+    /* Controls */
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .control-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.4rem;
+      border-radius: 2px;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .control-btn:hover {
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .control-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .main-play {
+      width: 42px;
+      height: 42px;
+      background: var(--accent);
+      border-radius: 2px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    .main-play:hover {
+      background: var(--accent-hover);
+    }
+
+    .main-play svg {
+      width: 18px;
+      height: 18px;
+      fill: #0c0c0c;
+    }
+
+    /* Volume */
+    .volume-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .volume-row svg {
+      width: 14px;
+      height: 14px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .volume-slider {
+      flex: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 2px;
+      background: var(--border);
+      border-radius: 0;
+      outline: none;
+    }
+
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 1px;
+      background: var(--accent);
+      cursor: pointer;
+    }
+
+    .player-actions {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.35rem;
+      margin-bottom: 0.55rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.32rem 0.5rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.62rem;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .action-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .action-btn svg {
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+
+    @media (max-width: 480px) {
+      .action-btn .action-label {
+        display: none;
+      }
+      .action-btn {
+        padding: 0.38rem 0.48rem;
+      }
+    }
+
+    .stream-status {
+      margin-bottom: 0.5rem;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      min-height: 1em;
+    }
+
+    .stream-status.error {
+      color: #ff6b6b;
+    }
+
+    .stream-status a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .stream-status a:hover {
+      text-decoration: underline;
+    }
+
+    .player-card.is-playing::before {
+      color: var(--accent);
+    }
+
+    /* Stats */
+    .stats {
+      display: flex;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .stat strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* History */
+    .history-section {
+      margin-top: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      margin-bottom: 0.55rem;
+    }
+
+    .section-title::before {
+      content: '~ $ ';
+      color: var(--text-muted);
+    }
+
+    .section-title .jp {
+      color: var(--text-muted);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      margin-left: 0.35rem;
+    }
+
+    .history-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .history-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.28rem 0.4rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.15s;
+    }
+
+    .history-item:hover {
+      border-color: #3a3a3a;
+    }
+
+    .history-item.is-collapsed {
+      display: none;
+    }
+
+    .history-section.is-expanded .history-item.is-collapsed {
+      display: flex;
+    }
+
+    .history-art {
+      width: 28px;
+      height: 28px;
+      border-radius: 1px;
+      object-fit: cover;
+      background: var(--surface-2);
+      flex-shrink: 0;
+    }
+
+    .history-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .history-title {
+      font-size: 0.72rem;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .history-artist {
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .history-more {
+      display: none;
+      margin-top: 0.4rem;
+      padding: 0.28rem 0.5rem;
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.62rem;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .history-more:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .history-more.is-visible {
+      display: block;
+    }
+
+    /* Schedule */
+    .schedule-section {
+      margin-top: 1.5rem;
+    }
+
+    .schedule-section.is-empty {
+      display: none;
+    }
+
+    .schedule-day {
+      margin-bottom: 1rem;
+    }
+
+    .schedule-day:last-child {
+      margin-bottom: 0;
+    }
+
+    .schedule-day-header {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .schedule-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .schedule-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+      padding: 0.35rem 0.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.15s;
+    }
+
+    .schedule-item:hover {
+      border-color: #3a3a3a;
+    }
+
+    .schedule-time {
+      flex-shrink: 0;
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+      min-width: 3.2rem;
+    }
+
+    .schedule-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .schedule-title {
+      font-size: 0.78rem;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .schedule-desc {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 0.05rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .schedule-empty {
+      text-align: left;
+      padding: 0.85rem 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    .schedule-empty a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .schedule-empty a:hover {
+      text-decoration: underline;
+    }
+
+    /* YouTube Videos */
+    .videos-section {
+      margin-top: 1.5rem;
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+
+    .video-card {
+      display: flex;
+      gap: 0.65rem;
+      padding: 0.4rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s;
+    }
+
+    .video-card:hover {
+      border-color: #3a3a3a;
+    }
+
+    .video-thumb {
+      width: 100px;
+      aspect-ratio: 16 / 9;
+      border-radius: 1px;
+      object-fit: cover;
+      background: var(--surface-2);
+      flex-shrink: 0;
+      filter: contrast(1.05) saturate(0.85);
+    }
+
+    .video-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .video-title {
+      font-size: 0.75rem;
+      font-weight: 500;
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .video-date {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .videos-empty {
+      text-align: left;
+      padding: 0.85rem 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    .videos-empty a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .videos-empty a:hover {
+      text-decoration: underline;
+    }
+
+    .videos-footer-link {
+      text-align: left;
+      margin-top: 0.75rem;
+      font-size: 0.7rem;
+    }
+
+    .videos-footer-link a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .videos-footer-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Ko-fi tip */
+    .tip-section {
+      margin: 0 0 0.85rem;
+    }
+
+    .kofi-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.65rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+
+    .kofi-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--surface-2);
+    }
+
+    .kofi-btn svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .kofi-note {
+      display: none;
+    }
+
+    /* Social feeds (unused – kept for safety) */
+    .social-section {
+      margin-top: 1.5rem;
+    }
+
+    .social-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .social-item {
+      display: block;
+      padding: 0.55rem 0.65rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s;
+    }
+
+    .social-item:hover {
+      border-color: #3a3a3a;
+    }
+
+    .social-meta {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+
+    .social-text {
+      font-size: 0.78rem;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      word-break: break-word;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .social-thumb {
+      width: 100%;
+      max-height: 160px;
+      object-fit: cover;
+      border-radius: 1px;
+      margin-top: 0.45rem;
+      border: 1px solid var(--border);
+    }
+
+    .social-empty {
+      text-align: left;
+      padding: 0.85rem 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    .social-empty a,
+    .social-footer-link a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .social-empty a:hover,
+    .social-footer-link a:hover {
+      text-decoration: underline;
+    }
+
+    .social-footer-link {
+      margin-top: 0.75rem;
+      font-size: 0.7rem;
+    }
+
+    .social-profile {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.55rem 0.65rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: inherit;
+      margin-bottom: 0.5rem;
+      transition: border-color 0.15s;
+    }
+
+    .social-profile:hover {
+      border-color: var(--accent);
+    }
+
+    .social-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--surface-2);
+      flex-shrink: 0;
+    }
+
+    .social-profile-name {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .social-profile-handle {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    .x-timeline-wrap {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--surface);
+      min-height: 200px;
+    }
+
+    .x-timeline-wrap iframe {
+      display: block !important;
+    }
+
+    /* Footer */
+    footer {
+      text-align: left;
+      margin-top: 2.5rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.65rem;
+      letter-spacing: 0.02em;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      margin-bottom: 0.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-sep {
+      color: var(--text-muted);
+      margin: 0 0.35rem;
+    }
+
+    /* Loading state */
+    .loading .song-title,
+    .loading .song-artist {
+      background: var(--surface-2);
+      border-radius: 4px;
+      color: transparent;
+      animation: shimmer 1.5s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { opacity: 0.5; }
+    }
+
+    /* ========== Responsive ========== */
+
+    /* Small phones */
+    @media (max-width: 380px) {
+      .container {
+        padding: 1.25rem 0.85rem 3rem;
+      }
+
+      .logo-mark {
+        width: 28px;
+        height: 28px;
+      }
+
+      .logo {
+        font-size: 1rem;
+      }
+
+      .tagline {
+        font-size: 0.68rem;
+      }
+
+      .player-card {
+        padding: 1.15rem;
+        border-radius: 14px;
+      }
+
+      .song-title {
+        font-size: 1.15rem;
+      }
+
+      .song-artist {
+        font-size: 0.9rem;
+      }
+
+      .play-btn {
+        width: 60px;
+        height: 60px;
+      }
+
+      .play-btn svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .main-play {
+        width: 50px;
+        height: 50px;
+      }
+
+      .controls {
+        gap: 1rem;
+      }
+
+      .stats {
+        gap: 1.25rem;
+        font-size: 0.8rem;
+      }
+
+      .schedule-time {
+        min-width: 3rem;
+        font-size: 0.7rem;
+      }
+
+      .schedule-title {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Standard phones */
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.5rem 1rem 3.5rem;
+      }
+
+      header {
+        margin-bottom: 1.75rem;
+      }
+
+      .player-card {
+        padding: 1.35rem;
+      }
+
+      /* On touch devices show the play icon when paused */
+      .art-wrapper.paused .play-overlay {
+        opacity: 0.9;
+      }
+
+      .art-wrapper.playing .play-overlay {
+        opacity: 0;
+      }
+
+      /* Larger touch targets */
+      .control-btn {
+        min-width: 44px;
+        min-height: 44px;
+      }
+
+      .volume-row {
+        margin-bottom: 1.15rem;
+      }
+
+      .history-section,
+      .schedule-section,
+      .videos-section {
+        margin-top: 2rem;
+      }
+
+      .video-thumb {
+        width: 108px;
+      }
+
+      .video-title {
+        font-size: 0.8rem;
+      }
+
+      .history-item {
+        padding: 0.55rem 0.65rem;
+      }
+
+      .history-art {
+        width: 40px;
+        height: 40px;
+      }
+
+      .schedule-item {
+        padding: 0.4rem 0.6rem;
+      }
+
+      footer {
+        margin-top: 2.25rem;
+        font-size: 0.75rem;
+      }
+    }
+
+    /* Larger phones / small tablets portrait */
+    @media (min-width: 540px) {
+      .container {
+        padding-top: 3.5rem;
+      }
+    }
+
+    /* Tablets and up – slightly wider player if desired */
+    @media (min-width: 640px) {
+      .container {
+        max-width: 420px;
+      }
+    }
+
+    /* Landscape phones – compact vertical space */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .container {
+        padding: 1rem 1.25rem 2rem;
+        max-width: 560px;
+      }
+
+      header {
+        margin-bottom: 1rem;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      .tagline {
+        font-size: 0.8rem;
+      }
+
+      .player-card {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: 1.25rem;
+        align-items: center;
+        padding: 1rem;
+      }
+
+      .art-wrapper {
+        margin-bottom: 0;
+        aspect-ratio: 1;
+      }
+
+      .now-playing {
+        margin-bottom: 0.75rem;
+        text-align: left;
+      }
+
+      .song-title {
+        font-size: 1.1rem;
+      }
+
+      .progress-section {
+        margin-bottom: 0.75rem;
+      }
+
+      .controls {
+        margin-bottom: 0.75rem;
+        justify-content: flex-start;
+      }
+
+      .volume-row {
+        margin-bottom: 0.5rem;
+      }
+
+      .stats {
+        justify-content: flex-start;
+        padding-top: 0.5rem;
+      }
+
+      /* Hide secondary sections in very short landscape to keep focus on player */
+      .history-section,
+      .schedule-section,
+      .videos-section,
+      .social-section {
+        display: none;
+      }
+    }
+
+    /* Safe area insets for notched phones */
+    @supports (padding: max(0px)) {
+      .container {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+        padding-bottom: max(3.5rem, calc(2rem + env(safe-area-inset-bottom)));
+      }
+    }
+
+    /* Reduce motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .art-wrapper img,
+      .play-btn,
+      .main-play,
+      .progress-fill,
+      .schedule-item,
+      .history-item {
+        transition: none;
+      }
+
+      .live-badge::before {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="header-brand" href="index.html">
+        <img class="logo-mark" src="logo.jpg" alt="NSS Radio" width="32" height="32">
+        <div class="logo-text">
+          <h1 class="logo" id="station-name">NSS Radio</h1>
+          <p class="tagline" id="station-desc">Marine moods from the Irish Sea · アイリッシュ海からのマリンムード</p>
+        </div>
+      </a>
+      <nav class="site-nav" aria-label="Site">
+        <a href="index.html" class="is-active">listen</a>
+        <span class="nav-sep">/</span>
+        <a href="about.html">about</a>
+        <span class="nav-sep">/</span>
+        <a href="contact.html">contact</a>
+      </nav>
+    </header>
+
+    <section class="tip-section" id="tip-section">
+      <a class="kofi-btn" id="kofi-btn" href="https://ko-fi.com/newsocialstudios" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+          <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/>
+          <line x1="6" y1="2" x2="6" y2="4"/>
+          <line x1="10" y1="2" x2="10" y2="4"/>
+          <line x1="14" y1="2" x2="14" y2="4"/>
+        </svg>
+        Ko-fi
+      </a>
+    </section>
+
+    <div class="player-card" id="player-card">
+      <div class="art-wrapper paused" id="art-wrapper" title="Play / Pause">
+        <div class="art-placeholder" id="art-placeholder">♪</div>
+        <img id="album-art" src="" alt="Album art" style="display:none;">
+        <div class="play-overlay" id="play-overlay" aria-hidden="true">
+          <div class="play-btn" id="play-btn">
+            <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="now-playing loading" id="now-playing">
+        <div class="song-title" id="song-title">Loading…</div>
+        <div class="song-artist" id="song-artist">Please wait</div>
+        <div class="live-badge" id="live-badge" style="display:none;">On air</div>
+      </div>
+
+      <div class="progress-section">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="time-row">
+          <span id="time-elapsed">0:00</span>
+          <span id="time-remaining">0:00</span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="control-btn" id="prev-btn" title="Previous" aria-label="Previous" style="visibility:hidden;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+        </button>
+        <button class="main-play control-btn" id="main-play" aria-label="Play / Pause">
+          <svg id="main-play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <button class="control-btn" id="next-btn" title="Next" aria-label="Next" style="visibility:hidden;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+        </button>
+      </div>
+
+      <div class="volume-row">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        <input type="range" class="volume-slider" id="volume" min="0" max="1" step="0.01" value="0.8" aria-label="Volume">
+      </div>
+
+      <div class="player-actions">
+        <a class="action-btn action-find" id="spotify-btn" href="#" target="_blank" rel="noopener" title="Find on Spotify" hidden>
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          <span class="action-label">Spotify</span>
+        </a>
+        <a class="action-btn action-find" id="apple-music-btn" href="#" target="_blank" rel="noopener" title="Find on Apple Music" hidden>
+          <svg viewBox="0 0 24 24"><path d="M23.997 6.124c0-.738-.065-1.47-.24-2.19-.317-1.31-1.016-2.37-2.207-3.175C21.037.254 20.35.081 19.583 0h-3.29v11.185l-4.328-1.383V.002H8.166c-.259.03-.516.07-.772.128-1.42.348-2.536 1.15-3.285 2.385-.49.807-.75 1.686-.794 2.638C3.29 5.8 3.28 6.45 3.28 7.1v9.434c.01.46.042.918.124 1.37.25 1.43.95 2.57 2.11 3.4.85.61 1.8.95 2.85 1.04.27.02.54.03.81.03h1.29v-6.81l4.33 1.39v5.42h3.26c.77-.04 1.5-.22 2.18-.58 1.2-.63 2-1.63 2.4-2.95.14-.47.21-.95.24-1.44.01-.18.01-.36.01-.54V6.124z"/></svg>
+          <span class="action-label">Apple Music</span>
+        </a>
+        <button type="button" class="action-btn" id="share-btn" title="Share this track">
+          <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+          <span class="action-label">Share</span>
+        </button>
+        <button type="button" class="action-btn" id="copy-stream-btn" title="Copy stream URL">
+          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+          <span class="action-label">Copy stream</span>
+        </button>
+        <a class="action-btn" id="fallback-player-btn" href="https://nssradio.live/public/corkwing_fm" target="_blank" rel="noopener" title="Open backup player">
+          <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          <span class="action-label">Backup</span>
+        </a>
+      </div>
+      <div class="stream-status" id="stream-status"></div>
+
+      <div class="stats">
+        <div class="stat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span><strong id="listeners">–</strong> listeners</span>
+        </div>
+        <div class="stat" id="bitrate-stat" style="display:none;">
+          <span><strong id="bitrate">–</strong> kbps</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="history-section" id="history-section" style="display:none;">
+      <h2 class="section-title">history <span class="jp">履歴</span></h2>
+      <ul class="history-list" id="history-list"></ul>
+      <button type="button" class="history-more" id="history-more">show more</button>
+    </section>
+
+    <section class="schedule-section is-empty" id="schedule-section">
+      <h2 class="section-title">schedule <span class="jp">番組表</span></h2>
+      <div id="schedule-content"></div>
+      <p class="schedule-footer-link" style="margin-top:0.5rem; font-size:0.65rem;">
+        <a href="https://nssradio.live/public/corkwing_fm/schedule" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none;">→ full schedule</a>
+      </p>
+    </section>
+
+    <section class="videos-section" id="videos-section">
+      <h2 class="section-title">videos <span class="jp">動画</span></h2>
+      <div id="videos-content">
+        <div class="videos-empty">Loading videos…</div>
+      </div>
+      <p class="videos-footer-link">
+        <a href="https://www.youtube.com/@corkwinglive/videos" target="_blank" rel="noopener">→ latest videos</a>
+      </p>
+    </section>
+
+    <footer>
+      <p class="footer-links">
+        <a href="about.html">about</a>
+        <span class="footer-sep">·</span>
+        <a href="contact.html">contact</a>
+        <span class="footer-sep">·</span>
+        <a href="https://www.instagram.com/aotten/" target="_blank" rel="noopener">instagram/@aotten</a>
+        <span class="footer-sep">·</span>
+        <a href="https://x.com/aotten" target="_blank" rel="noopener">x/@aotten</a>
+        <span class="footer-sep">·</span>
+        <a href="https://www.youtube.com/@corkwinglive" target="_blank" rel="noopener">youtube/@corkwinglive</a>
+      </p>
+      <p style="margin-top:0.75rem;">nss radio · irish sea · アイリッシュ海</p>
+      <p style="margin-top:0.35rem;">new social studios</p>
+    </footer>
+  </div>
+
+  <audio id="audio" preload="none"></audio>
+
+  <script>
+    // ============================================================
+    //  CONFIGURATION – Edit these values for your own station
+    // ============================================================
+    const CONFIG = {
+      // Station API base URL (no trailing slash)
+      baseUrl: "https://nssradio.live",
+
+      // Station shortcode
+      stationShortcode: "corkwing_fm",
+
+      // Direct stream URL – set on load so play works even if API is blocked
+      streamUrl: "https://nssradio.live:8000/radio.mp3",
+
+      // Optional: override the display name
+      customName: "NSS Radio",
+
+      // How often to poll the Now Playing API (ms) — used as fallback if WebSocket fails
+      pollInterval: 15000,
+
+      // Use the high-performance static JSON endpoint when possible
+      useStaticEndpoint: true,
+
+      // Prefer live WebSocket updates (falls back to polling)
+      useLiveWebSocket: true,
+
+      // YouTube channel
+      youtubeChannelId: "UCNnjmjaIgtKh-quvT7BAYHQ",
+      youtubeHandle: "@corkwinglive",
+      youtubeMaxVideos: 4,
+      historyVisible: 4,
+      historyMax: 10,
+
+      // Ko-fi username (the part after ko-fi.com/)
+      kofiUsername: "newsocialstudios"
+    };
+    // ============================================================
+
+    const audio = document.getElementById('audio');
+    // Set stream immediately so the player works without waiting for the API
+    // (do not set crossOrigin – Icecast often lacks CORS headers and that would block audio)
+    audio.src = CONFIG.streamUrl;
+    const albumArt = document.getElementById('album-art');
+    const artPlaceholder = document.getElementById('art-placeholder');
+    const artWrapper = document.getElementById('art-wrapper');
+    const songTitle = document.getElementById('song-title');
+    const songArtist = document.getElementById('song-artist');
+    const liveBadge = document.getElementById('live-badge');
+    const progressFill = document.getElementById('progress-fill');
+    const timeElapsed = document.getElementById('time-elapsed');
+    const timeRemaining = document.getElementById('time-remaining');
+    const listenersEl = document.getElementById('listeners');
+    const stationNameEl = document.getElementById('station-name');
+    const stationDescEl = document.getElementById('station-desc');
+    const historySection = document.getElementById('history-section');
+    const historyList = document.getElementById('history-list');
+    const volumeSlider = document.getElementById('volume');
+    const playBtn = document.getElementById('play-btn');
+    const mainPlay = document.getElementById('main-play');
+    const playIcon = document.getElementById('play-icon');
+    const mainPlayIcon = document.getElementById('main-play-icon');
+    const nowPlayingEl = document.getElementById('now-playing');
+
+    let isPlaying = false;
+    let currentNp = null;
+    let progressTimer = null;
+    let pollTimer = null;
+
+    // Icons
+    const PLAY_SVG = `<path d="M8 5v14l11-7z"/>`;
+    const PAUSE_SVG = `<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>`;
+
+    function setPlayingState(playing) {
+      isPlaying = playing;
+      artWrapper.classList.toggle('playing', playing);
+      artWrapper.classList.toggle('paused', !playing);
+      playIcon.innerHTML = playing ? PAUSE_SVG : PLAY_SVG;
+      mainPlayIcon.innerHTML = playing ? PAUSE_SVG : PLAY_SVG;
+      playBtn.classList.toggle('playing', playing);
+    }
+
+    function formatTime(seconds) {
+      if (!seconds || isNaN(seconds) || seconds < 0) return '0:00';
+      const m = Math.floor(seconds / 60);
+      const s = Math.floor(seconds % 60);
+      return `${m}:${s.toString().padStart(2, '0')}`;
+    }
+
+    function updateProgress() {
+      if (!currentNp || !currentNp.now_playing) return;
+
+      const np = currentNp.now_playing;
+      const duration = np.duration || 0;
+      let elapsed = np.elapsed || 0;
+
+      // If we have played_at, calculate more accurately
+      if (np.played_at && duration > 0) {
+        const now = Math.floor(Date.now() / 1000);
+        elapsed = Math.min(now - np.played_at, duration);
+      }
+
+      const remaining = Math.max(0, duration - elapsed);
+      const percent = duration > 0 ? (elapsed / duration) * 100 : 0;
+
+      progressFill.style.width = `${percent}%`;
+      timeElapsed.textContent = formatTime(elapsed);
+      timeRemaining.textContent = formatTime(remaining);
+    }
+
+    function updateUI(data) {
+      if (!data) return;
+      currentNp = data;
+      nowPlayingEl.classList.remove('loading');
+
+      // Station name only (keep fixed bilingual tagline)
+      if (data.station) {
+        stationNameEl.textContent = CONFIG.customName || data.station.name || 'Radio';
+      }
+
+      const isLive = !!(data.live && data.live.is_live);
+      const song = data.now_playing?.song;
+
+      // Current song
+      if (song) {
+        songTitle.textContent = song.title || 'Unknown Title';
+        songArtist.textContent = song.artist || (isLive ? (data.live.streamer_name || 'Live') : 'Unknown Artist');
+
+        // Prefer track art; when live, streamer art is a good fallback
+        // Avoid flashing placeholder when the same art URL is repeated
+        const artUrl = song.art || (isLive && data.live.art) || '';
+        setAlbumArt(artUrl);
+        updateFindLinks(song.title, song.artist);
+      } else if (isLive) {
+        songTitle.textContent = data.live.streamer_name || 'Live';
+        songArtist.textContent = 'On air';
+        setAlbumArt(data.live.art || '');
+        updateFindLinks('', '');
+      } else {
+        updateFindLinks('', '');
+      }
+
+      // Live badge — show DJ name when on air
+      if (isLive) {
+        liveBadge.style.display = 'inline-flex';
+        liveBadge.textContent = data.live.streamer_name
+          ? `On air · ${data.live.streamer_name}`
+          : 'On air';
+        liveBadge.title = data.live.streamer_name
+          ? `Live DJ: ${data.live.streamer_name}`
+          : 'Live broadcast';
+      } else {
+        liveBadge.style.display = 'none';
+      }
+
+      // Listeners
+      if (data.listeners) {
+        listenersEl.textContent = data.listeners.current ?? data.listeners.total ?? '–';
+      }
+
+      // History — show a few, rest behind "show more"
+      renderHistory(data.song_history || []);
+
+      // Never rewrite audio.src while playing (metadata updates must not interrupt stream)
+      updateProgress();
+    }
+
+    function updateFindLinks(title, artist) {
+      const spotifyBtn = document.getElementById('spotify-btn');
+      const appleBtn = document.getElementById('apple-music-btn');
+      const t = (title || '').trim();
+      const a = (artist || '').trim();
+      // Skip junk / live-only labels
+      const bad = /^(unknown|live|on air|nss radio|loading|please wait)$/i;
+      const usable = t && !bad.test(t) && (!a || !bad.test(a));
+
+      if (!usable) {
+        if (spotifyBtn) { spotifyBtn.hidden = true; spotifyBtn.removeAttribute('href'); }
+        if (appleBtn) { appleBtn.hidden = true; appleBtn.removeAttribute('href'); }
+        return;
+      }
+
+      const q = [a, t].filter(Boolean).join(' ');
+      const enc = encodeURIComponent(q);
+      if (spotifyBtn) {
+        spotifyBtn.href = `https://open.spotify.com/search/${enc}`;
+        spotifyBtn.hidden = false;
+        spotifyBtn.title = `Find “${q}” on Spotify`;
+      }
+      if (appleBtn) {
+        appleBtn.href = `https://music.apple.com/search?term=${enc}`;
+        appleBtn.hidden = false;
+        appleBtn.title = `Find “${q}” on Apple Music`;
+      }
+    }
+
+    let lastArtUrl = '';
+    function setAlbumArt(artUrl) {
+      if (artUrl) {
+        if (artUrl !== lastArtUrl) {
+          lastArtUrl = artUrl;
+          albumArt.src = artUrl;
+        }
+        albumArt.style.display = 'block';
+        artPlaceholder.style.display = 'none';
+      } else {
+        lastArtUrl = '';
+        albumArt.removeAttribute('src');
+        albumArt.style.display = 'none';
+        artPlaceholder.style.display = 'flex';
+      }
+    }
+
+    function renderHistory(items) {
+      const moreBtn = document.getElementById('history-more');
+      if (!items || !items.length) {
+        historySection.style.display = 'none';
+        if (moreBtn) moreBtn.classList.remove('is-visible');
+        return;
+      }
+      const visible = CONFIG.historyVisible || 4;
+      const max = CONFIG.historyMax || 10;
+      const list = items.slice(0, max);
+      const wasExpanded = historySection.classList.contains('is-expanded');
+
+      historySection.style.display = 'block';
+      historyList.innerHTML = list.map((item, i) => {
+        const s = item.song || {};
+        const title = (s.title || 'Unknown').replace(/</g, '&lt;');
+        const artist = (s.artist || '').replace(/</g, '&lt;');
+        const art = (s.art || '').replace(/"/g, '&quot;');
+        const collapsed = i >= visible ? ' is-collapsed' : '';
+        return `
+          <li class="history-item${collapsed}">
+            <img class="history-art" src="${art}" alt="" loading="lazy" onerror="this.style.display='none'">
+            <div class="history-info">
+              <div class="history-title">${title}</div>
+              <div class="history-artist">${artist}</div>
+            </div>
+          </li>`;
+      }).join('');
+
+      if (moreBtn) {
+        if (list.length > visible) {
+          moreBtn.classList.add('is-visible');
+          moreBtn.textContent = wasExpanded ? 'show less' : `show more (${list.length - visible})`;
+          if (wasExpanded) historySection.classList.add('is-expanded');
+        } else {
+          moreBtn.classList.remove('is-visible');
+          historySection.classList.remove('is-expanded');
+        }
+      }
+    }
+
+    let usePolling = true;
+    let npSocket = null;
+    let wsRetryTimer = null;
+
+    async function fetchNowPlaying(scheduleNext) {
+      try {
+        const endpoint = CONFIG.useStaticEndpoint
+          ? `${CONFIG.baseUrl}/api/nowplaying_static/${CONFIG.stationShortcode}.json`
+          : `${CONFIG.baseUrl}/api/nowplaying/${CONFIG.stationShortcode}`;
+
+        const res = await fetch(endpoint, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        updateUI(data);
+      } catch (err) {
+        console.error('Failed to fetch now playing:', err);
+        if (CONFIG.useStaticEndpoint) {
+          try {
+            const res = await fetch(`${CONFIG.baseUrl}/api/nowplaying/${CONFIG.stationShortcode}`, { cache: 'no-store' });
+            if (res.ok) {
+              updateUI(await res.json());
+            }
+          } catch (e) {
+            console.error('Fallback also failed', e);
+          }
+        }
+        if (songTitle.textContent.includes('Loading')) {
+          songTitle.textContent = 'NSS Radio';
+          songArtist.textContent = 'Press play';
+          nowPlayingEl.classList.remove('loading');
+        }
+      } finally {
+        if (scheduleNext !== false && usePolling) {
+          clearTimeout(pollTimer);
+          pollTimer = setTimeout(() => fetchNowPlaying(true), CONFIG.pollInterval);
+        }
+      }
+    }
+
+    function handleLivePayload(ssePayload, useTime) {
+      const jsonData = ssePayload && ssePayload.data ? ssePayload.data : ssePayload;
+      if (!jsonData) return;
+      if (useTime !== false && jsonData.current_time && currentNp && currentNp.now_playing) {
+        // optional clock sync
+      }
+      if (jsonData.np) {
+        updateUI(jsonData.np);
+      } else if (jsonData.now_playing || jsonData.station) {
+        updateUI(jsonData);
+      }
+    }
+
+    function connectNowPlayingSocket() {
+      if (!CONFIG.useLiveWebSocket || typeof WebSocket === 'undefined') {
+        usePolling = true;
+        fetchNowPlaying(true);
+        return;
+      }
+
+      const wsUrl = CONFIG.baseUrl.replace(/^http/, 'ws') + '/api/live/nowplaying/websocket';
+      try {
+        npSocket = new WebSocket(wsUrl);
+      } catch (e) {
+        console.warn('WebSocket unavailable, using poll', e);
+        usePolling = true;
+        fetchNowPlaying(true);
+        return;
+      }
+
+      npSocket.onopen = () => {
+        usePolling = false;
+        clearTimeout(pollTimer);
+        npSocket.send(JSON.stringify({
+          subs: {
+            ['station:' + CONFIG.stationShortcode]: { recover: true }
+          }
+        }));
+        // One HTTP fetch for immediate UI while WS warms up
+        fetchNowPlaying(false);
+      };
+
+      npSocket.onmessage = (e) => {
+        let jsonData;
+        try {
+          jsonData = JSON.parse(e.data);
+        } catch {
+          return;
+        }
+        if (jsonData.connect) {
+          const connectData = jsonData.connect;
+          if (connectData.data && Array.isArray(connectData.data)) {
+            connectData.data.forEach((row) => handleLivePayload(row));
+          } else if (connectData.subs) {
+            for (const subName in connectData.subs) {
+              const sub = connectData.subs[subName];
+              if (sub.publications && sub.publications.length) {
+                sub.publications.forEach((row) => handleLivePayload(row, false));
+              }
+            }
+          }
+        } else if (jsonData.pub) {
+          handleLivePayload(jsonData.pub);
+        }
+      };
+
+      npSocket.onerror = () => {
+        console.warn('Now Playing WebSocket error');
+      };
+
+      npSocket.onclose = () => {
+        npSocket = null;
+        // Fall back to polling, retry WS later
+        if (!usePolling) {
+          usePolling = true;
+          fetchNowPlaying(true);
+        }
+        clearTimeout(wsRetryTimer);
+        wsRetryTimer = setTimeout(connectNowPlayingSocket, 20000);
+      };
+    }
+
+    const streamStatus = document.getElementById('stream-status');
+    const playerCard = document.getElementById('player-card');
+    let reconnectTimer = null;
+    let intentionalPause = false;
+
+    function setStreamStatus(msg, isError) {
+      if (!streamStatus) return;
+      streamStatus.innerHTML = msg || '';
+      streamStatus.classList.toggle('error', !!isError);
+    }
+
+    function streamUrlWithBust() {
+      const base = CONFIG.streamUrl;
+      return base + (base.includes('?') ? '&' : '?') + 't=' + Date.now();
+    }
+
+    function startPlayback(fromReconnect) {
+      intentionalPause = false;
+      if (!audio.src || audio.src === window.location.href || fromReconnect) {
+        audio.src = streamUrlWithBust();
+      }
+      setStreamStatus(fromReconnect ? 'Reconnecting…' : '');
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          setPlayingState(true);
+          setStreamStatus('');
+        }).catch(err => {
+          console.error('Playback failed:', err);
+          // Retry once with a fresh URL
+          audio.src = streamUrlWithBust();
+          audio.play().then(() => {
+            setPlayingState(true);
+            setStreamStatus('');
+          }).catch(e => {
+            console.error('Retry failed:', e);
+            setPlayingState(false);
+            setStreamStatus(
+              'Stream blocked — <a href="https://nssradio.live/public/corkwing_fm" target="_blank" rel="noopener">open backup player</a>',
+              true
+            );
+          });
+        });
+      }
+    }
+
+    function togglePlay() {
+      if (isPlaying) {
+        intentionalPause = true;
+        audio.pause();
+        setPlayingState(false);
+        setStreamStatus('');
+      } else {
+        startPlayback(false);
+      }
+    }
+
+    function scheduleReconnect() {
+      if (intentionalPause) return;
+      clearTimeout(reconnectTimer);
+      setStreamStatus('Connection lost – reconnecting…');
+      reconnectTimer = setTimeout(() => {
+        if (!intentionalPause) startPlayback(true);
+      }, 1500);
+    }
+
+    // Event listeners
+    artWrapper.addEventListener('click', togglePlay);
+    mainPlay.addEventListener('click', (e) => {
+      e.stopPropagation();
+      togglePlay();
+    });
+
+    volumeSlider.addEventListener('input', () => {
+      audio.volume = parseFloat(volumeSlider.value);
+    });
+    audio.volume = parseFloat(volumeSlider.value);
+
+    audio.addEventListener('play', () => {
+      setPlayingState(true);
+      if (playerCard) playerCard.classList.add('is-playing');
+      setStreamStatus('');
+    });
+    audio.addEventListener('pause', () => {
+      setPlayingState(false);
+      if (playerCard) playerCard.classList.remove('is-playing');
+      if (!intentionalPause) scheduleReconnect();
+    });
+    audio.addEventListener('ended', () => {
+      setPlayingState(false);
+      scheduleReconnect();
+    });
+    audio.addEventListener('error', () => {
+      if (!intentionalPause) scheduleReconnect();
+    });
+    audio.addEventListener('stalled', () => {
+      if (isPlaying && !intentionalPause) setStreamStatus('Buffering…');
+    });
+    audio.addEventListener('waiting', () => {
+      if (isPlaying && !intentionalPause) setStreamStatus('Buffering…');
+    });
+    audio.addEventListener('playing', () => setStreamStatus(''));
+
+    // Space = play/pause
+    document.addEventListener('keydown', (e) => {
+      if (e.code !== 'Space' && e.key !== ' ') return;
+      const tag = (e.target && e.target.tagName) || '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'BUTTON' || tag === 'A') return;
+      e.preventDefault();
+      togglePlay();
+    });
+
+    // Share current track
+    document.getElementById('share-btn')?.addEventListener('click', async () => {
+      const title = songTitle.textContent || 'NSS Radio';
+      const artist = songArtist.textContent || '';
+      const text = artist && !artist.includes('wait') && artist !== 'Please wait'
+        ? `${title} – ${artist} on NSS Radio`
+        : 'Listening to NSS Radio';
+      const url = window.location.href.split('#')[0];
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: 'NSS Radio', text, url });
+        } else {
+          await navigator.clipboard.writeText(`${text}\n${url}`);
+          setStreamStatus('Link copied');
+          setTimeout(() => setStreamStatus(''), 2000);
+        }
+      } catch (err) {
+        if (err && err.name === 'AbortError') return;
+        try {
+          await navigator.clipboard.writeText(`${text}\n${url}`);
+          setStreamStatus('Link copied');
+          setTimeout(() => setStreamStatus(''), 2000);
+        } catch {
+          setStreamStatus('Could not share', true);
+        }
+      }
+    });
+
+    // Copy stream URL
+    document.getElementById('copy-stream-btn')?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(CONFIG.streamUrl);
+        setStreamStatus('Stream URL copied');
+        setTimeout(() => setStreamStatus(''), 2000);
+      } catch {
+        setStreamStatus('Could not copy', true);
+      }
+    });
+
+    // History show more / less
+    document.getElementById('history-more')?.addEventListener('click', () => {
+      const btn = document.getElementById('history-more');
+      const expanded = historySection.classList.toggle('is-expanded');
+      const hidden = historyList.querySelectorAll('.history-item.is-collapsed').length;
+      if (btn) btn.textContent = expanded ? 'show less' : `show more (${hidden})`;
+    });
+
+    // Smooth progress updates
+    setInterval(updateProgress, 1000);
+
+    // ---- Schedule ----
+    const scheduleContent = document.getElementById('schedule-content');
+
+    function parseScheduleDate(iso) {
+      if (!iso) return null;
+      try {
+        // Handle unix timestamps (seconds)
+        if (typeof iso === 'number' || /^\d+$/.test(String(iso))) {
+          const n = Number(iso);
+          return new Date(n < 1e12 ? n * 1000 : n);
+        }
+        return new Date(iso);
+      } catch {
+        return null;
+      }
+    }
+
+    function formatTimeOnly(d) {
+      if (!d || isNaN(d)) return '';
+      return d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function formatDayHeader(d) {
+      if (!d || isNaN(d)) return 'Upcoming';
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+
+      const isSameDay = (a, b) =>
+        a.getFullYear() === b.getFullYear() &&
+        a.getMonth() === b.getMonth() &&
+        a.getDate() === b.getDate();
+
+      if (isSameDay(d, today)) return 'Today';
+      if (isSameDay(d, tomorrow)) return 'Tomorrow';
+      return d.toLocaleDateString(undefined, {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'short'
+      });
+    }
+
+    function dayKey(d) {
+      if (!d || isNaN(d)) return 'unknown';
+      return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+    }
+
+    function renderSchedule(items) {
+      const scheduleSection = document.getElementById('schedule-section');
+      if (!items || items.length === 0) {
+        if (scheduleSection) scheduleSection.classList.add('is-empty');
+        scheduleContent.innerHTML = '';
+        return;
+      }
+
+      if (scheduleSection) scheduleSection.classList.remove('is-empty');
+
+      // Group by day
+      const groups = new Map();
+      items.slice(0, 20).forEach(item => {
+        const startRaw = item.start || item.start_time || item.start_timestamp;
+        const endRaw = item.end || item.end_time || item.end_timestamp;
+        const startDate = parseScheduleDate(startRaw);
+        const endDate = parseScheduleDate(endRaw);
+        const key = dayKey(startDate);
+        if (!groups.has(key)) {
+          groups.set(key, { date: startDate, items: [] });
+        }
+        groups.get(key).items.push({
+          title: item.title || item.name || item.playlist_name || 'Scheduled show',
+          desc: item.description || item.playlist || '',
+          start: startDate,
+          end: endDate
+        });
+      });
+
+      let html = '';
+      for (const group of groups.values()) {
+        html += `<div class="schedule-day">`;
+        html += `<div class="schedule-day-header">${formatDayHeader(group.date)}</div>`;
+        html += `<ul class="schedule-list">`;
+        group.items.forEach(it => {
+          const timeStr = it.end
+            ? `${formatTimeOnly(it.start)}–${formatTimeOnly(it.end)}`
+            : formatTimeOnly(it.start);
+          html += `
+            <li class="schedule-item">
+              <div class="schedule-time">${timeStr}</div>
+              <div class="schedule-info">
+                <div class="schedule-title">${it.title}</div>
+                ${it.desc ? `<div class="schedule-desc">${it.desc}</div>` : ''}
+              </div>
+            </li>`;
+        });
+        html += `</ul></div>`;
+      }
+
+      scheduleContent.innerHTML = html;
+    }
+
+    async function fetchSchedule() {
+      const scheduleSection = document.getElementById('schedule-section');
+      try {
+        // Try common station schedule endpoints
+        const endpoints = [
+          `${CONFIG.baseUrl}/api/station/${CONFIG.stationShortcode}/schedule`,
+          `${CONFIG.baseUrl}/api/station/1/schedule`,
+          `${CONFIG.baseUrl}/api/station/corkwing_fm/schedule`
+        ];
+
+        let data = null;
+        for (const url of endpoints) {
+          try {
+            const res = await fetch(url, { cache: 'no-store' });
+            if (res.ok) {
+              data = await res.json();
+              break;
+            }
+          } catch (e) { /* try next */ }
+        }
+
+        renderSchedule(Array.isArray(data) ? data : (data?.schedule || data?.items || []));
+      } catch (err) {
+        console.error('Schedule fetch failed:', err);
+        if (scheduleSection) scheduleSection.classList.add('is-empty');
+        scheduleContent.innerHTML = `
+          <div class="schedule-empty">
+            Could not load schedule<br>
+            <a href="https://nssradio.live/public/corkwing_fm/schedule" target="_blank" rel="noopener">→ schedule</a>
+          </div>`;
+      }
+    }
+
+    // ---- YouTube Latest Videos ----
+    const videosContent = document.getElementById('videos-content');
+
+    function formatVideoDate(iso) {
+      if (!iso) return '';
+      try {
+        const d = new Date(iso);
+        return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+      } catch {
+        return '';
+      }
+    }
+
+    function renderVideos(entries) {
+      if (!entries || entries.length === 0) {
+        videosContent.innerHTML = `
+          <div class="videos-empty">
+            No videos found<br>
+            <a href="https://www.youtube.com/${CONFIG.youtubeHandle}/videos" target="_blank" rel="noopener">→ channel · チャンネル</a>
+          </div>`;
+        return;
+      }
+
+      // Always show newest first
+      const sorted = [...entries].sort((a, b) => {
+        const da = new Date(a.published || 0).getTime();
+        const db = new Date(b.published || 0).getTime();
+        return db - da;
+      });
+
+      const html = sorted.slice(0, CONFIG.youtubeMaxVideos).map(v => `
+        <a class="video-card" href="${v.link}" target="_blank" rel="noopener">
+          <img class="video-thumb" src="${v.thumbnail}" alt="" loading="lazy" onerror="this.style.opacity='0.3'">
+          <div class="video-info">
+            <div class="video-title">${v.title}</div>
+            <div class="video-date">${formatVideoDate(v.published)}</div>
+          </div>
+        </a>
+      `).join('');
+
+      videosContent.innerHTML = `<div class="videos-grid">${html}</div>`;
+    }
+
+    async function fetchYouTubeVideos() {
+      // Official channel feed = uploads in reverse chronological order (latest first)
+      const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${CONFIG.youtubeChannelId}`;
+      const bust = '_=' + Date.now();
+      // Public RSS→JSON proxies (tried in order)
+      const proxies = [
+        `https://rss2json.com/api.json?rss_url=${encodeURIComponent(rssUrl)}&${bust}`,
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}&${bust}`,
+        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(rssUrl)}`
+      ];
+
+      function videoIdFrom(str) {
+        if (!str) return '';
+        const m = String(str).match(/(?:v=|\/vi\/|youtu\.be\/|shorts\/|video:)?([A-Za-z0-9_-]{11})/);
+        return m ? m[1] : String(str).split(':').pop() || '';
+      }
+
+      for (const proxyUrl of proxies) {
+        try {
+          const res = await fetch(proxyUrl, { cache: 'no-store' });
+          if (!res.ok) continue;
+          const textOrJson = await res.text();
+
+          // rss2json returns JSON
+          if (proxyUrl.includes('rss2json')) {
+            const data = JSON.parse(textOrJson);
+            if (data.items && data.items.length) {
+              const entries = data.items.map(item => {
+                const id = videoIdFrom(item.guid || item.link || item.id);
+                return {
+                  title: item.title,
+                  link: item.link || (id ? `https://www.youtube.com/watch?v=${id}` : '#'),
+                  published: item.pubDate || item.published || '',
+                  thumbnail: item.thumbnail || (id ? `https://i.ytimg.com/vi/${id}/mqdefault.jpg` : '')
+                };
+              });
+              renderVideos(entries);
+              return;
+            }
+            continue;
+          }
+
+          // Atom XML from allorigins / codetabs
+          const parser = new DOMParser();
+          const xml = parser.parseFromString(textOrJson, 'application/xml');
+          const entries = [...xml.querySelectorAll('entry')].map(entry => {
+            const videoId = entry.querySelector('videoId')?.textContent
+              || videoIdFrom(entry.querySelector('id')?.textContent)
+              || '';
+            const mediaGroup = entry.getElementsByTagName('media:group')[0]
+              || entry.querySelector('group');
+            let thumb = '';
+            if (mediaGroup) {
+              const t = mediaGroup.getElementsByTagName('media:thumbnail')[0]
+                || mediaGroup.querySelector('thumbnail');
+              thumb = t?.getAttribute('url') || '';
+            }
+            if (!thumb && videoId) thumb = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
+            return {
+              title: entry.querySelector('title')?.textContent || 'Video',
+              link: entry.querySelector('link')?.getAttribute('href') || `https://www.youtube.com/watch?v=${videoId}`,
+              published: entry.querySelector('published')?.textContent || '',
+              thumbnail: thumb
+            };
+          });
+
+          if (entries.length) {
+            renderVideos(entries);
+            return;
+          }
+        } catch (e) {
+          console.warn('YouTube proxy failed:', proxyUrl, e);
+        }
+      }
+
+      // All proxies failed
+      videosContent.innerHTML = `
+        <div class="videos-empty">
+          Could not load videos<br>
+          <a href="https://www.youtube.com/${CONFIG.youtubeHandle}/videos" target="_blank" rel="noopener">→ latest videos</a>
+        </div>`;
+    }
+
+    // Ko-fi tip button
+    (function setupKofi() {
+      const btn = document.getElementById('kofi-btn');
+      const section = document.getElementById('tip-section');
+      if (!btn || !section) return;
+      if (CONFIG.kofiUsername) {
+        btn.href = 'https://ko-fi.com/' + encodeURIComponent(CONFIG.kofiUsername);
+      } else {
+        // Hide until a username is set
+        section.style.display = 'none';
+      }
+    })();
+
+    // Start — live WebSocket with HTTP poll fallback
+    connectNowPlayingSocket();
+    fetchSchedule();
+    fetchYouTubeVideos();
+  </script>
+</body>
+</html>
